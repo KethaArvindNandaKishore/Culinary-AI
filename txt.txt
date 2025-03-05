@@ -1,0 +1,16 @@
+
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+
+const Api_ChatBot = async()=>{
+
+    const genAI = new GoogleGenerativeAI("AIzaSyBfhBUMgpNJW4tjlLOpJG1rATcG60GIGWc");
+    
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    const prompt = "How are you budy?";
+    
+    
+    const result = await model.generateContent([prompt], { max_length: 100 });
+    console.log(result.response.text());
+}
